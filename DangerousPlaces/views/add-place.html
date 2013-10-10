@@ -1,0 +1,12 @@
+﻿<div data-role="view" id="add-place-view" data-id="add-place-view"
+     data-layout="main-layout" data-title="Add Place"
+     data-show="app.viewModels.addPlace.init">
+    <h1>Add Place</h1>
+    <label for="title">Title</label>
+    <input type="text" id="title" data-bind="value: place.title"/>
+    <label for="description">Description</label>
+    <input type="text" id="description" data-bind="value: place.description"/>
+    <button data-role="button" data-bind="events: {click: takePicture}">Take Picture</button>
+    <img data-bind="attr: { src: place.pictureUrl }" id="image-uploaded-picture"/>    
+    <button data-role="button" data-bind="events: { click: addPlace }">Add Place</button>
+</div>
