@@ -9,8 +9,14 @@ app.viewModels = app.viewModels || { };
         });
     }
 
+    function selectPlace(param) {
+        app.viewModels.placeDetails.loadPlace(param.data);
+        app.application.navigate("views/place-details.html");
+    }
+    
     var viewModel = kendo.observable({
-        allPlaces: []
+        allPlaces: [],
+        selectPlace: selectPlace
     });
 
     function init(e) {

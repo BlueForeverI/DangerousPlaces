@@ -60,6 +60,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="data\places-persister.js" />
+    <Content Include="kendo\js\kendo.all.min.js" />
+    <Content Include="scripts\jquery.mobile-1.3.2.js" />
     <Content Include="utilities\camera.js" />
     <Content Include="index.html" />
     <Content Include="kendo\js\jquery.min.js" />
@@ -103,8 +105,10 @@
       <Platform>Android</Platform>
       <TargetName>cordova.js</TargetName>
     </Content>
+    <Content Include="viewmodels\place-details.js" />
     <Content Include="views\add-place.html" />
     <Content Include="views\all-places.html" />
+    <Content Include="views\place-details.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Resources\" />

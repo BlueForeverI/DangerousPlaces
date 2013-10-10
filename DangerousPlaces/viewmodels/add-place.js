@@ -19,11 +19,11 @@ app.viewModels = app.viewModels || {};
                 viewModel.place.latitude = parseFloat(position.coords.latitude);
                 viewModel.place.longitude = parseFloat(position.coords.longitude);
 
-                console.log(viewModel.place);
                 app.data.placesPersister.addPlace(viewModel.place)
                     .then(function () {
                         alert("Place added");
-                        // TODO: vibrate and navigate to another page
+                        navigator.notification.vibrate(1000);
+                        app.application.navigate("views/all-places.html");
                     }, function (error) {
 
                     });
