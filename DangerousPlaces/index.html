@@ -41,11 +41,12 @@
     </div>
 
     <script id="place-template" type="text/x-kendo-template">
-            <div>
-                <h2>#:title#</h2>
-                <p>#:description#</p>
-                <img src="#:pictureUrl#" class="place-template-picture" data-bind="events: {click: selectPlace}"/>
-                <a href="http://maps.google.com/maps?z=15&t=m&q=loc:#:latitude#+#:longitude#">View on map</a>
+            <div class="place-template">
+            <img src="#:pictureUrl#" class="place-template-picture" data-bind="events: {click: selectPlace}"
+                    class="place-template-picture"/>
+            <div class="place-template-info-container">
+                <h2 class="place-template-title">#:title#</h2>
+            </div>
             </div>
     </script>
 </body>

@@ -19,10 +19,48 @@ img {
     height: 150px;
 }
 
+#all-places-view {
+    margin: auto;
+    text-align: center;
+}
+
+.place-template {
+    clear: both;
+    margin: auto;
+    float: left;
+    border: 1px solid black;
+    overflow: hidden;
+    width: 90%;
+    position: relative;
+    margin-top: 20px;
+    text-align: center;
+}
+
 .place-template-picture {
     width: 100px;
     height: 100px;
+    display: inline;
+    float: left;
 }
+
+
+.place-template-title {
+    text-wrap: none;
+    vertical-align: text-top;
+    max-height: 50px;
+}
+
+.place-template-info-container {
+    overflow: no-display;
+    display: inline-block;
+    text-align: left;
+    margin-top: 0px;
+    vertical-align: top;
+    padding-left: 20px;
+    position: absolute;
+    left: 100px;
+}
+
 /*body, html {
     margin:0;   
     height:100%;
