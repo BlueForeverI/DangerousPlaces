@@ -6,6 +6,8 @@ app.viewModels = app.viewModels || {};
         app.data.placesPersister.getAllPlaces()
         .then(function (data) {
             viewModel.set("allPlaces", data);
+        }, function (error) {
+            alert(error);
         });
     }
 
@@ -14,6 +16,12 @@ app.viewModels = app.viewModels || {};
     }
 
     function filterPlaces() {
+        console.log();
+        if(isNaN(parseFloat(viewModel.kilometers))) {
+            alert("Invalid kilometers value");
+            return;
+        }
+        
         app.utilities.geolocation.getPosition()
             .then(function (position) {
                 var kilometers = parseFloat(viewModel.kilometers);
@@ -21,18 +29,26 @@ app.viewModels = app.viewModels || {};
 
                 var currentLat = position.coords.latitude;
                 var currentLon = position.coords.longitude;
-                for (var i = 0; i < viewModel.allPlaces.length; i++) {
-                    var currentPlace = viewModel.allPlaces[i];
-                    var distance = app.utilities.geolocation.calculateDistance(
-                        currentLat, currentLon, currentPlace.latitude, currentPlace.longitude);
-                    if(distance <= kilometers) {
-                        nearPlaces.push(currentPlace);
-                    }
-                }
 
-                viewModel.set("allPlaces", nearPlaces);
+                app.data.placesPersister.getAllPlaces()
+                    .then(function (data) {
+                        for (var i = 0; i < data.length; i++) {
+                            var currentPlace = data[i];
+                            var distance = app.utilities.geolocation.calculateDistance(
+                                currentLat, currentLon, currentPlace.latitude, currentPlace.longitude);
+                            
+                            if (distance <= kilometers) {
+                                nearPlaces.push(currentPlace);
+                            }
+                        }
+                        
+                        viewModel.set("allPlaces", nearPlaces);
+                    }, function (error) {
+                        alert(error);
+                    });
+
             }, function (error) {
-
+                alert(error);
             });
     }
 

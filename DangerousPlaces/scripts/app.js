@@ -5,6 +5,10 @@
     document.addEventListener("deviceready", function () {
         app.application = new kendo.mobile.Application(document.body, { layout: "tabstrip-layout" });
     }, false);
+    
+    document.addEventListener("offline", function () {
+        alert("Connect to the internet to use the app");
+    }, false);
 
     app.changeSkin = function (e) {
         if (e.sender.element.text() === "Flat") {

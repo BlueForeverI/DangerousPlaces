@@ -3,13 +3,16 @@
     data-show="app.viewModels.addPlace.init">
     <div data-role="scroller">
         <div id="add-place-container">
-            <label for="title">Title</label>
-            <input type="text" id="title" data-bind="value: place.title" />
-            <label for="description">Description</label>
-            <textarea id="description" data-bind="value: place.description"></textarea>
-            <button data-role="button" data-bind="events: { click: takePicture }">Take Picture</button>
+            <label for="add-place-title">Title</label>
+            <input type="text" id="add-place-title" data-bind="value: place.title" />
+            <label for="add-place-description">Description</label>
+            <textarea id="add-place-description" data-bind="value: place.description"></textarea>
+            <label>Picture</label>
             <img data-bind="attr: { src: place.pictureUrl }" id="add-place-picture" />
-            <button data-role="button" data-bind="events: { click: addPlace }">Add Place</button>
+            <button data-role="button" data-bind="events: { click: takePicture }"
+                id="add-place-button-picture">Take Picture</button>
+            <button data-role="button" data-bind="events: { click: addPlace }"
+                id="add-place-button-add">Add Place</button>
         </div>
     </div>
 </div>

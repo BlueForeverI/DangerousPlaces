@@ -12,7 +12,15 @@ app.viewModels = app.viewModels || {};
     var container = null;
 
     function addPlace() {
-        // TODO: validation
+        if(viewModel.place.title.toString().length < 5) {
+            alert("Title should be at least 5 characters");
+            return;
+        }
+        
+        if (viewModel.place.description.toString().length < 5) {
+            alert("Description should be at least 5 characters");
+            return;
+        }
 
         app.utilities.geolocation.getPosition()
             .then(function (position) {
@@ -25,9 +33,10 @@ app.viewModels = app.viewModels || {};
                         navigator.notification.vibrate(1000);
                         app.application.navigate("views/all-places.html");
                     }, function (error) {
-
+                        alert(error);
                     });
-            }, function(error) {
+            }, function (error) {
+                alert(error);
             });
     }
 
@@ -39,7 +48,7 @@ app.viewModels = app.viewModels || {};
             viewModel.place.pictureUrl = url;
             kendo.bind(container, viewModel);
         }, function() {
-            console.log("failed");
+            alert("Could not get picture from camera");
         });
     }
 

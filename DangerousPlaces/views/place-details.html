@@ -4,14 +4,18 @@
     <div data-role="scroller">
         <div id="place-details-container">
             <h1 data-bind="text: place.title" id="place-details-title"></h1>
-            <!--<h2 id="place-details-description-header">Description</h2>-->
             <p data-bind="text: place.description" id="place-details-description" />
             <h2 id="place-details-picture-header">Picture</h2>
+            <a data-bind="attr: { href: place.pictureUrl }">
             <img data-bind="attr: { src: place.pictureUrl }" id="place-details-picture" />
+                
+            </a>
             <h2 id="place-details-address-header">Address</h2>
             <p data-bind="text: place.address" id="place-details-address"></p>
             <a data-bind="attr: { href: place.mapAddress }"
-                id="place-details-view-on-map">View on map</a>
+               id="place-details-view-on-map">View on map</a>
+            <a href="mailto:blueforeverabv@gmail.com"
+                id="place-details-contact">Not dangerous anymore? Contact us</a>
         </div>
     </div>
 </div>
