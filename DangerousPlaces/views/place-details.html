@@ -2,14 +2,16 @@
     data-layout="main-layout" data-title="Place Details"
     data-show="app.viewModels.placeDetails.init">
     <div data-role="scroller">
-        <h2>Title</h2>
-        <p data-bind="text: place.title"></p>
-        <h2>Description</h2>
-        <p data-bind="text: place.description" />
-        <h2>Picture</h2>
-        <img data-bind="attr: { src: place.pictureUrl }" id="image-uploaded-picture" />
-        <h2>Address</h2>
-        <p data-bind="text: place.address"></p>
-        <a data-bind="attr: { href: place.mapAddress }">View on map</a>
+        <div id="place-details-container">
+            <h1 data-bind="text: place.title" id="place-details-title"></h1>
+            <!--<h2 id="place-details-description-header">Description</h2>-->
+            <p data-bind="text: place.description" id="place-details-description" />
+            <h2 id="place-details-picture-header">Picture</h2>
+            <img data-bind="attr: { src: place.pictureUrl }" id="place-details-picture" />
+            <h2 id="place-details-address-header">Address</h2>
+            <p data-bind="text: place.address" id="place-details-address"></p>
+            <a data-bind="attr: { href: place.mapAddress }"
+                id="place-details-view-on-map">View on map</a>
+        </div>
     </div>
 </div>

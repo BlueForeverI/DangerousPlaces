@@ -2,6 +2,14 @@
     data-layout="main-layout" data-title="All Places"
     data-show="app.viewModels.allPlaces.init">
     <div data-role="scroller">
+        <div id="filter-container">
+            <label for="text-kilometers" class="inline-label">Show places within</label>
+            <input type="text" id="text-kilometers" data-bind="value: kilometers"/>
+            <label class="inline-label">km</label>
+            <button data-role="button" 
+                data-bind="events: { click: filterPlaces }" 
+                id="button-filter">Filter</button>
+        </div>
         <ul data-role="listview" data-bind="source: allPlaces" data-template="place-template"></ul>
     </div>
 </div>

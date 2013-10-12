@@ -5,7 +5,7 @@ app.viewModels = app.viewModels || {};
     var placeToAdd = {
         title: "",
         description: "",
-        pictureUrl: "",
+        pictureUrl: "http://i.imgur.com/vLNkdqj.jpg",
         latitude: 0,
         longitude: 0
     };
@@ -14,7 +14,7 @@ app.viewModels = app.viewModels || {};
     function addPlace() {
         // TODO: validation
 
-        getPosition()
+        app.utilities.geolocation.getPosition()
             .then(function (position) {
                 viewModel.place.latitude = parseFloat(position.coords.latitude);
                 viewModel.place.longitude = parseFloat(position.coords.longitude);
@@ -32,6 +32,9 @@ app.viewModels = app.viewModels || {};
     }
 
     function takePicture() {
+        viewModel.place.pictureUrl = "styles/images/loading.gif";
+        kendo.bind(container, viewModel);
+        
         app.utilities.camera.takePicture().then(function(url) {
             viewModel.place.pictureUrl = url;
             kendo.bind(container, viewModel);
@@ -40,19 +43,7 @@ app.viewModels = app.viewModels || {};
         });
     }
 
-    function getPosition(){
-        return RSVP.Promise(function (success, error) {
-            var options = {
-                enableHighAccuracy: true
-            };
-            
-            navigator.geolocation.getCurrentPosition(function (position) {
-                success(position);
-            }, function (e) {
-                error(e);
-            }, options);
-        });
-    }
+    
 
     var viewModel = kendo.observable({
         place: placeToAdd,

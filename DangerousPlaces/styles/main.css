@@ -14,11 +14,6 @@ img {
     display: block;
 }
 
-#image-uploaded-picture {
-    width: 200px;
-    height: 150px;
-}
-
 #all-places-view {
     margin: auto;
     text-align: center;
@@ -34,6 +29,7 @@ img {
     position: relative;
     margin-top: 20px;
     text-align: center;
+    margin-left: 15px;
 }
 
 .place-template-picture {
@@ -59,6 +55,54 @@ img {
     padding-left: 20px;
     position: absolute;
     left: 100px;
+}
+
+.inline-label, #text-kilometers, #button-filter {
+    display: inline;
+}
+
+#text-kilometers {
+    width: 30px;
+}
+
+#filter-container {
+    margin-left: -50px;
+    margin-top: 20px;
+}
+
+
+#place-details-picture {
+    width: 200px;
+    height: 150px;
+    margin-left: 15px;
+}
+
+#place-details-container p, h2, img, a {
+    text-align: left;
+}
+
+#place-details-view-on-map {
+    margin-left: 15px;
+    font-size: 20px;
+}
+
+#add-place-container {
+    margin-left: 15px;
+    margin-top: 25px;
+}
+
+#add-place-picture {
+    width: 200px;
+    height: 180px;
+}
+
+textarea {
+    display: block;
+    width: 195px;
+}
+
+#title {
+    width: 198px;
 }
 
 /*body, html {

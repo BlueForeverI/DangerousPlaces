@@ -1,5 +1,5 @@
 ﻿var app = app || {};
-app.viewModels = app.viewModels || { };
+app.viewModels = app.viewModels || {};
 
 (function (a) {
     function getAllPlaces() {
@@ -11,12 +11,36 @@ app.viewModels = app.viewModels || { };
 
     function selectPlace(param) {
         app.viewModels.placeDetails.loadPlace(param.data);
-        app.application.navigate("views/place-details.html");
     }
-    
+
+    function filterPlaces() {
+        app.utilities.geolocation.getPosition()
+            .then(function (position) {
+                var kilometers = parseFloat(viewModel.kilometers);
+                var nearPlaces = new Array();
+
+                var currentLat = position.coords.latitude;
+                var currentLon = position.coords.longitude;
+                for (var i = 0; i < viewModel.allPlaces.length; i++) {
+                    var currentPlace = viewModel.allPlaces[i];
+                    var distance = app.utilities.geolocation.calculateDistance(
+                        currentLat, currentLon, currentPlace.latitude, currentPlace.longitude);
+                    if(distance <= kilometers) {
+                        nearPlaces.push(currentPlace);
+                    }
+                }
+
+                viewModel.set("allPlaces", nearPlaces);
+            }, function (error) {
+
+            });
+    }
+
     var viewModel = kendo.observable({
         allPlaces: [],
-        selectPlace: selectPlace
+        kilometers: "",
+        selectPlace: selectPlace,
+        filterPlaces: filterPlaces
     });
 
     function init(e) {
