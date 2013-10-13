@@ -33,10 +33,10 @@ app.viewModels = app.viewModels || {};
                         navigator.notification.vibrate(1000);
                         app.application.navigate("views/all-places.html");
                     }, function (error) {
-                        alert(error);
+                        alert("Error while adding a place");
                     });
             }, function (error) {
-                alert(error);
+                alert("Could not retrieve your location.");
             });
     }
 

@@ -44,11 +44,11 @@ app.viewModels = app.viewModels || {};
                         
                         viewModel.set("allPlaces", nearPlaces);
                     }, function (error) {
-                        alert(error);
+                        alert("Error while getting places");
                     });
 
             }, function (error) {
-                alert(error);
+                alert("Could not retrieve your location");
             });
     }
 
